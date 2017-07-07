@@ -1,0 +1,129 @@
+#include <iostream>
+#include "Rango.h"
+using namespace std;
+
+int main()
+{
+    int a, b;
+    cout<<"Ingrese el numero inferior: ";
+    cin>>a;
+    cout<<"Ingrese el numero superior: ";
+    cin>>b;
+
+    Rango *obj = new Rango(a,b);
+
+    //obj->ingresarDatosManual();
+
+    cout<<"\n"<<"La distancia es: "<<endl;
+    obj->hallarDistancia();
+    cout<<"\n"<<"La hipotenusa es: "<<endl;
+    obj->hallarHipotenusa();
+    cout<<"\n"<<"El rango es: "<<endl;
+    obj->imprimirRango();
+    cout<<"\n"<<"Los impares es: "<<endl;
+    obj->mostrarImpares();
+    cout<<"\n"<<"Los pares es: "<<endl;
+    obj->mostrarPares();
+    cout<<"\n"<<"Los numeros primos es: "<<endl;
+    obj->primosRango();
+
+    return 0;
+}
+
+
+//la clase rango.h
+#include<ctime>
+#include<cstdlib>
+#include<cmath>
+#include<algorithm>
+#include<iostream>
+#include<numeric>
+#include<set>
+using namespace std;
+
+class Rango
+{
+public:
+    int a, b, d, h;
+    double z;
+    //int v[100];
+public:
+    Rango(int a, int b)
+    {
+        this->a = a;
+        this->b = b;
+    }
+public:
+    float hallarDistancia ()
+    {
+        d = b - a;
+        cout<<d<<endl;
+    }
+     double hallarHipotenusa ()
+    {
+        h = sqrt((a*a)+(b*b));
+        cout<<h<<endl;
+    }
+    int imprimirRango ()
+    {
+        int m=a, n=b;
+
+        while(m<=n)
+        {
+            cout<<m<<" ";
+            m = m+1;
+        }
+        cout<<endl;
+    }
+
+    int mostrarImpares()
+    {
+        int p=a, q=b;
+        while(p<=q)
+        {
+            if(p%2!=0)
+            {
+                cout<<p<<" ";
+            }
+            p = p+1;
+        }
+        cout<<endl;
+    }
+
+     int mostrarPares()
+    {
+        int j=a, k=b;
+        while(j<=k)
+        {
+            if(j%2==0)
+            {
+                cout<<j<<" ";
+            }
+            j = j+1;
+        }
+        cout<<endl;
+    }
+
+    int primosRango()
+    {
+        int f=a, g=b;
+        while(f<=g)
+        {
+            int n=f, cont = 0;
+            for(int i=1; i<=n; i++)
+            {
+                if(f%i==0)
+                {
+                    cont= cont +1;
+                }
+            }
+            if (cont ==2)
+            {
+                cout<<f<<" ";
+            }
+            f=f+1;
+            cont = 0;
+        }
+        cout<<endl;
+    }
+};
